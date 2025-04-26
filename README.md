@@ -1,12 +1,14 @@
 c2pa_manager.py
 
+Use https://github.com/contentauth/c2pa-python library
+
 A standalone Python CLI script using the official c2pa-python SDK. It lets you:
 
-embed a new manifest (with publisher/software assertions)
+* embed a new manifest (with publisher/software assertions)
 
-verify an existing provenance chain
+* verify an existing provenance chain
 
-show the full manifest JSON
+* show the full manifest JSON
 
 All you need is your PEM-encoded signing key and certificate chain. Let me know if you’d like to add extra assertion types (geo, ingredients, etc.) or integrate with a key management service!
 
