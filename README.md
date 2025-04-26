@@ -1,4 +1,4 @@
-c2pa_manager.py
+# c2pa_manager.py
 
 Use https://github.com/contentauth/c2pa-python library
 
@@ -22,8 +22,9 @@ Supports
 '.mov': 'video/quicktime',
 '.pdf': 'application/pdf',
 
-Example
-# Embed provenance into a JPEG
+## Example 1 Embed provenance into a JPEG
+
+```
 python c2pa_manager.py embed \
   --input   photo.jpg \
   --output  photo_prov.jpg \
@@ -31,13 +32,15 @@ python c2pa_manager.py embed \
   --cert     cert1.pem cert2.pem \
   --publisher "Acme Studio" \
   --software "AcmeEditor:3.4.1"
+```
 
-# Verify the provenance you just embedded
+### Verify the provenance you just embedded
 python c2pa_manager.py verify \
   --input photo_prov.jpg
 
 ▶ Verification status: AllChecksPass
 
+```
 Manifest assertions:
 Manifest(
   publisher="Acme Studio",
@@ -46,14 +49,18 @@ Manifest(
   timestamps={ created: "2025-04-26T14:03:22Z" },
   ...
 )
+```
 
-Example 2) Show full manifest JSON
+## Example 2) Show full manifest JSON
 
-# Dump the raw manifest JSON for inspection
+### Dump the raw manifest JSON for inspection
+```
 python c2pa_manager.py show \
   --input photo_prov.jpg
+```
 
-Sample Output:
+### Sample Output:
+```
 {
   "@context": "https://w3id.org/security/v2",
   "type": "Claim",
@@ -77,5 +84,6 @@ Sample Output:
     "signatureValue": "XyZ..."
   }
 }
+```
 
 Feel free to swap in video (.mp4), PDF or other file types—the script auto-guesses MIME based on file extension. Let me know if you need examples for more advanced assertions (geo-tags, cloud storage bindings, custom claims, etc.).
